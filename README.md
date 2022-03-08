@@ -38,8 +38,42 @@ Proposal the cover all the requirements and design for unit conversion starting 
         - en_CH: `kilometer-per-hour`
 
 ## Proposed API
-TBD.
+### For Single Units Conversion:
+```js
+const singleUnitsConverter =
+         intl.UnitsConverter(
+                  sourceSingleUnit: "meter",
+                  targetSingleUnit: "foot"
+                );
 
+console.log(singleUnitsConverter.convert(1.0));
+// output should be: 3.28084
+```
+
+### For Complex Units Conversion:
+```js
+const complextUnitsConverter =
+         intl.UnitsConverter(
+                 sourceSingleUnit: "meter",
+                 targetComplexUnit: "foot-and-inch"
+                );
+
+console.log(complextUnitsConverter.convert(1.0));
+// output should be: 3.0 feet, 3.37 inches
+```
+
+### For Locale Aware Units Conversion:
+```js
+const localeAwareUnitsConverter =
+         intl.UnitsConverter(
+                 sourceSingleUnit: "meter",
+                 locale: "en_US",
+                 usage: "person-height"
+                );
+
+console.log(localeAwareUnitsConverter.convert(1.0));
+// output should be: 3.0 feet, 3.37 inches
+```
 
 ## Terminologies
 
